@@ -1,11 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
-import path from "path";
+import 'dotenv/config';
 
 import viewEngine from "./configs/viewEngine";
 
+
 const app = express();
-const port = 7575;
+const port = process.env.PORT;
 
 //config babel
 app.use(bodyParser.json());
