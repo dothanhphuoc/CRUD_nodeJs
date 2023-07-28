@@ -1,9 +1,19 @@
-.container {
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-    background: blue;
+.container {
 
 }
 
 .container h1 {
     color: red;
+}
+
+.container img {
+    width: 400px;
+    height: 200px;
+    
 }

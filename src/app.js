@@ -1,9 +1,9 @@
 import express from "express";
 import bodyParser from "body-parser";
-import 'dotenv/config';
+import "dotenv/config";
 
 import viewEngine from "./configs/viewEngine";
-
+import router from "./routes/router";
 
 const app = express();
 const port = process.env.PORT;
@@ -15,13 +15,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //config view engine
 viewEngine(app);
 
-app.get("/", (req, res) => {
-  res.render("./index.ejs");
-});
-
-app.get("/about", (req, res) => {
-  res.send("Hello About Page");
-});
+//router
+app.use("/", router);
 
 app.listen(port, () => {
   console.log(`Server Runing in port: ${port} `);
