@@ -9,6 +9,14 @@
     <div class="container">
         <h1>WellCome Ejs 2023</h1>
         <img alt="backpink" src="/images/blackpink.jpg"/>
+        <ul>
+            <% dataUsers.forEach(function(user){ %>
+              <li><%= user.firstName %></li>
+              <li><%= user.lastName %></li>
+              <li><%= user.email %></li>
+              <li><%= user.address %></li>
+            <% }); %>
+          </ul>
     </div>
 </body>
 </html>

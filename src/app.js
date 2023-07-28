@@ -5,6 +5,7 @@ import "dotenv/config";
 import viewEngine from "./configs/viewEngine";
 import router from "./routes/router";
 
+
 const app = express();
 const port = process.env.PORT;
 
