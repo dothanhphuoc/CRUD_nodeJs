@@ -1,11 +1,16 @@
 //connect database
-import connection from "../configs/connectDB";
+import pool from "../configs/connectDB";
 
-let homeController = (req, res) => {
-  connection.query("select * from `users`", function (err, results, fields) {
-    let dataUsers = results;
-    return res.render("index.ejs", { dataUsers: dataUsers });
-  });
+let homeController = async (req, res) => {
+  const [rows, field] = await pool.execute("select * from `users`");
+  return res.render("index.ejs", { dataUsers: rows });
 };
 
-export { homeController };
+let detailUser = async (req, res) => {
+  let id = req.params.id;
+
+  let user = await pool.execute("select * from `users` where id = ?", [id]);
+  return res.render("detailUser.ejs", { user: user[0] });
+};
+
+export { homeController, detailUser };
