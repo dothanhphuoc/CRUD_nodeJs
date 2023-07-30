@@ -5,13 +5,15 @@ import "dotenv/config";
 import viewEngine from "./configs/viewEngine";
 import router from "./routes/router";
 
-
 const app = express();
 const port = process.env.PORT;
 
-//config babel
+//bodyParser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+//bodyParser style express
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //config view engine
 viewEngine(app);
